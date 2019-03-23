@@ -13,6 +13,15 @@ const cars = [
 new Vue({
  el: '#app',
  data: {
-   cars: cars
+   cars: cars,
+   car: cars[0],
+   selectedCarIndex: 0,
+   phoneVisibility: false
+ },
+ methods: {
+  selectCar: function(index) {
+    this.car = cars[index]
+    this.selectedCarIndex = index
+  }
  }
 })

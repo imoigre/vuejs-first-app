@@ -28,8 +28,10 @@
                 <hr>
                 <ul class="list-group">
                     <li 
-                    v-for="car of cars" 
+                    v-for="(car, index) of cars" 
                     class="list-group-item list-group-item-action pointer"
+                    v-on:click="selectCar(index)"
+                    :class="{'active': selectedCarIndex === index}"
                     >
                     {{ car.name }} {{ car.model}}
                 </li>
@@ -38,18 +40,21 @@
             <div class="col-md-8 pt-3">
                 <div class="row">
                     <div class="col-md-5 ">
-                        <h2>Ford</h2>
-                        <img src="images/focus.jpg" alt="" class="rounded detailed-car-img">
+                        <h2>{{ car.name }}</h2>
+                        <img 
+                        :src="car.image" 
+                        v-bind:alt="car.name" 
+                        class="rounded detailed-car-img">
                     </div>
                     <div class="col-md-7 pt-2">
                         <h5>Car Details</h5>
                         <ul>
-                            <li>Model - <strong>Focus</strong></li>
-                            <li>Year - <strong>2018</strong></li>
-                            <li>Owner- <strong>Sashko</strong></li>
+                            <li>Model - <strong>{{ car.model}}</strong></li>
+                            <li>Year - <strong>{{car.year}}</strong></li>
+                            <li>Owner- <strong>{{car.owner}}</strong></li>
                         </ul>
-                        <p>+38 (068) 316 - 27 - 26</p>
-                        <button class="btn btn-outline-success">Show phone</button>
+                        <p v-if="phoneVisibility">{{car.phone}}</p>
+                        <button class="btn btn-outline-success mr-3" v-on:click="phoneVisibility = true">Show phone</button>
                         <button class=" btn btn-primary">Buy</button>
                     </div>
                 </div>
