@@ -27,19 +27,19 @@
                 </div>
                 <hr>
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action">lorem</li>
-                    <li class="list-group-item list-group-item-action">lorem</li>
-                    <li class="list-group-item list-group-item-action">lorem</li>
-                    <div id="vueapp">
-                        {{ message }}
-                    </div>
+                    <li 
+                    v-for="car of cars" 
+                    class="list-group-item list-group-item-action pointer"
+                    >
+                    {{ car.name }} {{ car.model}}
+                </li>
                 </ul>
             </div>
             <div class="col-md-8 pt-3">
                 <div class="row">
                     <div class="col-md-5 ">
                         <h2>Ford</h2>
-                        <img src="https://www.plandegestion.es/wp-content/uploads/2019/01/resize767xespcge04yynbs-hcvs-d3acmaaaapn3gz_21_0-1.png" alt="" class="rounded detailed-car-img">
+                        <img src="images/focus.jpg" alt="" class="rounded detailed-car-img">
                     </div>
                     <div class="col-md-7 pt-2">
                         <h5>Car Details</h5>
